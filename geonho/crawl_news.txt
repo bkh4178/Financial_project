@@ -1,0 +1,7 @@
+python crawl_news3.py --keywords 기준금리 국채 채권금리 금값 국제유가
+python crawl_news3.py --keywords 원유 WTI 환율 원달러 달러강세
+python crawl_news2.py --keywords 
+
+각 키워드별 csv생성
+다 생성 후 카테고리별 병합 예정 (중복 제거)
+
