@@ -48,7 +48,7 @@ def split_date_range(start_date, end_date, months):
             next_date = end
 
         ranges.append((current.strftime("%Y-%m-%d"), next_date.strftime("%Y-%m-%d")))
-        current = next_date + timedelta(days=1)
+        current = next_date
 
     return ranges
 
