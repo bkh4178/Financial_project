@@ -71,7 +71,7 @@ def get_total_count(driver, keyword, start_date, end_date):
         print(f"[{keyword}] totalCount 못 찾음 → fallback 0")
         total = 0
 
-    print(f"[{keyword}] 총 기사 수: {total}")
+    print(f"\n[{keyword}] 총 기사 수: {total}")
     return total
 
 def safe_get(driver, url, retries=5):

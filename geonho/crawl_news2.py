@@ -205,6 +205,8 @@ def main():
             total = get_total_count(driver, keyword, start, end)
 
             try:
+                if total == 0:
+                    continue
                 # -----------------------------
                 # 1️⃣ 정상 구간
                 # -----------------------------
@@ -283,6 +285,7 @@ def main():
         # -----------------------------
         # 🔥 tmp 삭제
         # -----------------------------
+        files = glob.glob(f"{save_dir}/tmp_{keyword}_*.csv")
         if DELETE_TMP:
             for f in files:
                 os.remove(f)
