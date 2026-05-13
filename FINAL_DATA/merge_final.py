@@ -11,8 +11,9 @@ import os
 import pandas as pd
 
 FINAL_DIR = os.path.join(os.path.dirname(__file__), "FINAL")
-OUTPUT_PATH     = os.path.join(os.path.dirname(__file__), "final_dataset_all.csv")
-OUTPUT_PATH_FILLED = os.path.join(os.path.dirname(__file__), "final_dataset_all_filled.csv")
+TFT_DIR = os.path.join(os.path.dirname(__file__), "tft_data")
+OUTPUT_PATH     = os.path.join(TFT_DIR, "final_dataset_all.csv")
+OUTPUT_PATH_FILLED = os.path.join(TFT_DIR, "final_dataset_all_filled.csv")
 
 REQUIRED_COLUMNS = [
     "date", "ticker", "name", "end", "AUM", "target_5d", "sector",
@@ -131,6 +132,8 @@ def main() -> None:
     if not paths:
         print(f"[ERROR] 파일을 찾을 수 없습니다: {pattern}")
         return
+
+    os.makedirs(TFT_DIR, exist_ok=True)
 
     print(f"감지된 파일 {len(paths)}개:")
     for p in paths:

@@ -9,8 +9,9 @@ import os
 import pandas as pd
 
 FINAL_DATA_DIR = os.path.dirname(__file__)
-INPUT_PATH  = os.path.join(FINAL_DATA_DIR, "final_dataset_all_filled.csv")
-OUTPUT_PATH = os.path.join(FINAL_DATA_DIR, "final_dataset_all_macro_filled.csv")
+TFT_DIR = os.path.join(FINAL_DATA_DIR, "tft_data")
+INPUT_PATH  = os.path.join(TFT_DIR, "final_dataset_all_filled.csv")
+OUTPUT_PATH = os.path.join(TFT_DIR, "final_dataset_all_macro_filled.csv")
 
 MACRO_COLUMNS = ["usd_krw", "vix_close"]
 
