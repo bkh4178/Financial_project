@@ -47,9 +47,12 @@ def main() -> None:
 
     # 2. ticker / date 오름차순 정렬
     df = df.sort_values(["ticker", "date"]).reset_index(drop=True)
+    # 변경 (날짜 기준 글로벌)
+    date_to_idx = {d: i for i, d in enumerate(sorted(df["date"].unique()))}
+    df["time_idx"] = df["date"].map(date_to_idx)
 
     # 3. ticker별 time_idx
-    df["time_idx"] = df.groupby("ticker").cumcount()
+    #df["time_idx"] = df.groupby("ticker").cumcount()
 
     # 4. sector 한글 → 영문
     before = df["sector"].unique().tolist()
