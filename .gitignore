@@ -58,3 +58,6 @@ wandb/
 # ==============================
 *.tmp
 *.swp
+
+src/outputs/
+lightning_logs/
