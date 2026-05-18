@@ -21,14 +21,15 @@ from config import (
     MAX_PREDICTION_LENGTH,
     CHECKPOINT_DIR,
     LOG_DIR,
-)
 
-# ── 하이퍼파라미터 ─────────────────────────────────────────────────────────────
-HIDDEN_SIZE = 32
-ATTENTION_HEAD_SIZE = 2
-DROPOUT = 0.1
-HIDDEN_CONTINUOUS_SIZE = 16
-LEARNING_RATE = 3e-4
+    HIDDEN_SIZE, 
+    ATTENTION_HEAD_SIZE, 
+    DROPOUT, 
+    HIDDEN_CONTINUOUS_SIZE, 
+    LEARNING_RATE, 
+    MAX_EPOCHS, 
+    PATIENCE
+)
 
 QUANTILES = [0.1, 0.5, 0.9]   # 불확실성 구간 + 중앙값(point prediction)
 
@@ -71,7 +72,7 @@ def build_model(train_ds) -> TemporalFusionTransformer:
     return model
 
 
-def build_trainer(max_epochs: int = 50) -> pl.Trainer:
+def build_trainer(max_epochs: int = MAX_EPOCHS) -> pl.Trainer:
     """
     PyTorch Lightning Trainer 생성.
 
@@ -82,7 +83,7 @@ def build_trainer(max_epochs: int = 50) -> pl.Trainer:
     """
     early_stop = EarlyStopping(
         monitor="val_loss",
-        patience=5,
+        patience=PATIENCE,
         mode="min",
         verbose=True,
     )

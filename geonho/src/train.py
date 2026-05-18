@@ -14,6 +14,7 @@ sys.path.append(os.path.dirname(__file__))
 
 from data.dataset import make_datasets
 from model.tft import build_model, build_trainer
+from config import MAX_EPOCHS
 
 
 def main():
@@ -31,7 +32,7 @@ def main():
 
     # 3. Trainer
     print("\nBuilding trainer...")
-    trainer = build_trainer(max_epochs=50)
+    trainer = build_trainer(max_epochs=MAX_EPOCHS)
 
     # 4. 학습
     print("\nTraining...")

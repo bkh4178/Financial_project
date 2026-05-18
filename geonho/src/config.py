@@ -4,23 +4,26 @@ config.py
 프로젝트 전역 상수. preprocess.py / dataset.py / train.py 모두 여기서 import.
 
 디렉토리 구조:
-    geonho/
-    ├── FINAL_DATA/tft_data/final_dataset_tft_ready.csv  ← 원본
-    └── src/
-        ├── config.py
-        ├── train.py
-        ├── predict.py
-        ├── data/
-        │   ├── preprocess.py
-        │   └── dataset.py
-        ├── model/
-        │   └── tft.py
-        └── outputs/
-            ├── checkpoints/
-            ├── logs/
-            ├── scalers/
-            └── data/
-                └── final_dataset_preprocessed.csv
+    Financial_project/
+    ├── FINAL_DATA/
+    │   └── tft_data/
+    │       └── final_dataset_tft_ready.csv   ← 원본 데이터
+    └── geonho/
+        └── src/
+            ├── config.py
+            ├── train.py
+            ├── predict.py
+            ├── data/
+            │   ├── preprocess.py
+            │   └── dataset.py
+            ├── model/
+            │   └── tft.py
+            └── outputs/
+                ├── checkpoints/
+                ├── logs/
+                ├── scalers/
+                └── data/
+                    └── final_dataset_preprocessed.csv
 """
 
 import os
@@ -87,8 +90,19 @@ TIME_VARYING_UNKNOWN_REALS = [
     "vix_close",
 ]
 
-# ── 모델 하이퍼파라미터 ────────────────────────────────────────────────────────
-MAX_ENCODER_LENGTH   = 60
+
+# ── 모델 하이퍼파라미터 (수정)────────────────────────────────────────────────────────
+MAX_ENCODER_LENGTH    = 60
 MAX_PREDICTION_LENGTH = 1
-BATCH_SIZE           = 64
-LEARNING_RATE = 3e-4
+BATCH_SIZE            = 64
+LEARNING_RATE         = 3e-4
+
+# ── TFT 아키텍처 ──────────────────────────────────────────────────────────────
+HIDDEN_SIZE            = 32
+ATTENTION_HEAD_SIZE    = 2
+DROPOUT                = 0.1
+HIDDEN_CONTINUOUS_SIZE = 16
+
+# ── Trainer ───────────────────────────────────────────────────────────────────
+MAX_EPOCHS = 50
+PATIENCE   = 5
